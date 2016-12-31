@@ -18,7 +18,7 @@ static void		lst_delone(t_file **file)
 	ft_memdel((void**)file);
 }
 
-void			only_files(t_file **begin, int options)
+void			only_files(t_file **begin)
 {
 	t_file	*tmp;
 

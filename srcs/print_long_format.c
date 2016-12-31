@@ -83,7 +83,7 @@ static void		print_time(t_file *file)
 		ft_printf(" %12.12s", str + 4);
 }
 
-int				print_long_format(t_file *file, int options, int size[6])
+int				print_long_format(t_file *file, int size[6])
 {
 	char	str[12];
 	char	buf[NAME_MAX + 1];

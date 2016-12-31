@@ -52,8 +52,6 @@ static int		fill_size(int size[6], t_file *file)
 
 int				get_fields_size(t_file *begin, int size[6], int *total)
 {
-	int len;
-
 	size[4] = 3;
 	size[5] = 3;
 	while (begin != NULL)

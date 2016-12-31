@@ -17,7 +17,6 @@ static t_file	*init_files_list(char **names_list, int size, int options,
 {
 	int		i;
 	t_file	*begin;
-	t_stat	stat;
 
 	begin = NULL;
 	if (size == 0)
@@ -50,7 +49,7 @@ int				main(int ac, char **av)
 	av = av + i;
 	ac = ac - i;
 	begin = init_files_list(av, ac, options, 1);
-	only_files(&begin, options);
+	only_files(&begin);
 	no_files = begin == NULL ? 1 : 0;
 	print_list(&begin, (options | LS_D));
 	free_files_list(&begin);

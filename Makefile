@@ -24,26 +24,26 @@ SRCS_NAME		=		add_new_file.c\
 							print_long_format.c\
 							sort_list.c
 SRCS_PATH		=		srcs/
-SRCS			=		$(addprefix $(SRCS_PATH), $(SRCS_NAME))
-OBJ_NAME		=		$(SRCS_NAME:.c=.o)
-OBJ_PATH		=		obj/
+SRCS				=		$(addprefix $(SRCS_PATH), $(SRCS_NAME))
+OBJ_NAME			=		$(SRCS_NAME:.c=.o)
+OBJ_PATH			=		obj/
 OBJ				=		$(addprefix $(OBJ_PATH), $(OBJ_NAME))
-NAME			=		ft_ls
-FLAG			=		-Wall -Werror -Wextra
-INC				=		./includes/
+NAME				=		ft_ls
+FLAGS				=		-Wall -Werror -Wextra
+INC				=		-I./includes/
 
 
 .PHONY: all, clean, fclean, re
 
-all: $(NAME)
-
 $(NAME): $(OBJ)
 	make -C libft/
-	gcc $(FLAGS) -I $(INC) -L ./libft/ -lft $(OBJ) -o $(NAME)
+	gcc $(FLAGS) $(OBJ) $(INC) -L ./libft/ -lft -o $(NAME)
+
+all: $(NAME)
 
 $(OBJ_PATH)%.o: $(SRCS_PATH)%.c
 	@mkdir -p obj
-	gcc -c $(FLAGS) -I $(INC) $< -o $@
+	gcc -c $(FLAGS) $< $(INC) -o $@
 
 clean:
 	make -C libft/ fclean

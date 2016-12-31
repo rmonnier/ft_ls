@@ -72,7 +72,7 @@ int						get_fields_size(t_file *begin, int size[6],
 										int *total);
 int						get_options(int ac, char **av, int *options);
 int						sort_list(t_file **begin, int options);
-void					only_files(t_file **begin, int options);
+void					only_files(t_file **begin);
 int						print_list(t_file **begin, int options);
 int						add_new_file(char path[PATH_MAX], char *name,
 										t_file **begin);
@@ -80,7 +80,6 @@ int						ft_sort_tab(char **tab, int size,
 										int (*f)(const char*, const char*));
 int						print_folders(t_file *begin, int options,
 										t_bool recursive, int no_files);
-int						print_long_format(t_file *file, int options,
-										int size[5]);
+int						print_long_format(t_file *file, int size[5]);
 
 #endif

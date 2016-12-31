@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-static int		print_list_standard(t_file *begin, int options)
+static int		print_list_standard(t_file *begin)
 {
 	while (begin != NULL)
 	{
@@ -39,7 +39,7 @@ static int		print_list_long(t_file *begin, int options)
 			ft_printf("total %d\n", total);
 			first = 0;
 		}
-		print_long_format(begin, options, size);
+		print_long_format(begin, size);
 		begin = begin->next;
 	}
 	return (1);
@@ -51,6 +51,6 @@ int				print_list(t_file **begin, int options)
 	if (options & LS_L)
 		print_list_long(*begin, options);
 	else
-		print_list_standard(*begin, options);
+		print_list_standard(*begin);
 	return (1);
 }
