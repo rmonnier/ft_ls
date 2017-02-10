@@ -31,7 +31,6 @@ char				*ftpf_convert_float(va_list ap, t_specifiers specifiers,
 									int *size)
 {
 	long double	arg;
-	int			base;
 	char		*s;
 
 	arg = get_arg(ap, specifiers.length);

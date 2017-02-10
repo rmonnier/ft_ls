@@ -62,6 +62,8 @@ typedef struct			s_file
 	char			*name;
 	char			full_path[PATH_MAX];
 	struct s_file	*next;
+	struct s_file	*left;
+	struct s_file	*right;
 
 }						t_file;
 
@@ -80,6 +82,6 @@ int						ft_sort_tab(char **tab, int size,
 										int (*f)(const char*, const char*));
 int						print_folders(t_file *begin, int options,
 										t_bool recursive, int no_files);
-int						print_long_format(t_file *file, int size[5]);
+void					print_long_format(t_file *file, int size[5]);
 
 #endif

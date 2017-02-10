@@ -12,14 +12,6 @@
 
 #include "ft_printf.h"
 
-static char	convert_number_to_base_component(int number)
-{
-	char	*base;
-
-	base = "0123456789abcdef";
-	return (base[number]);
-}
-
 static int	size_ftoa_before_dot(long double value)
 {
 	int			i;

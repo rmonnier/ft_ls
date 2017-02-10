@@ -6,7 +6,7 @@
 /*   By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 19:06:44 by rmonnier          #+#    #+#             */
-/*   Updated: 2016/12/22 13:30:13 by rmonnier         ###   ########.fr       */
+/*   Updated: 2017/02/10 14:43:08 by rmonnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static char		get_file_type(int mode)
 {
-	mode = (mode & S_IFMT);
 	if (S_ISREG(mode))
 		return ('-');
 	else if (S_ISDIR(mode))
@@ -83,7 +82,7 @@ static void		print_time(t_file *file)
 		ft_printf(" %12.12s", str + 4);
 }
 
-int				print_long_format(t_file *file, int size[6])
+void				print_long_format(t_file *file, int size[6])
 {
 	char	str[12];
 	char	buf[NAME_MAX + 1];
@@ -109,5 +108,5 @@ int				print_long_format(t_file *file, int size[6])
 		readlink(file->full_path, buf, NAME_MAX);
 		ft_printf(" %s -> %s\n", file->name, buf);
 	}
-	return (1);
+	return ;
 }

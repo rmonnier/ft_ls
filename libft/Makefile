@@ -6,11 +6,11 @@
 #    By: rmonnier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 10:17:46 by rmonnier          #+#    #+#              #
-#    Updated: 2016/11/28 15:16:18 by rmonnier         ###   ########.fr        #
+#    Updated: 2017/02/09 17:56:20 by rmonnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =				ft_atoi.c\
+SRCS_NAME =		ft_atoi.c\
 					ft_bzero.c\
 					ft_isalnum.c\
 					ft_isalpha.c\
@@ -81,28 +81,55 @@ SRCS =				ft_atoi.c\
 					ft_tolower.c\
 					ft_toupper.c\
 					get_next_line.c
-OBJ_NAME		=		$(SRCS:.c=.o)
+
+
+SRCS_NAME_PF		=		ft_printf.c\
+							ftpf_convert_characters.c\
+							ftpf_convert_float.c\
+							ftpf_convert_signed.c\
+							ftpf_convert_unsigned.c\
+							ftpf_get_format_specifications.c\
+							ft_itoa_base_lld.c\
+							ft_itoa_base_llu.c\
+							ft_ftoa.c\
+							ft_unicode_encoder.c\
+							ft_unicode_encoder_string.c\
+							ftpf_get_raw_data.c\
+							ftpf_get_specifiers.c\
+							ftpf_process_characters.c\
+							ftpf_process_data.c\
+							ftpf_process_float.c\
+							ftpf_process_signed.c\
+							ftpf_process_unsigned.c\
+							ftpf_tools.c\
+							ftpf_tools_is_functions.c
+
+SRCS_PATH		=		srcs/
+SRCS			=		$(addprefix $(SRCS_PATH), $(SRCS_NAME))
+SRCS_PF		=		$(addprefix $(SRCS_PATH), $(SRCS_NAME_PF))
+OBJ_NAME		=		$(SRCS_NAME:.c=.o)
+OBJ_NAME_PF =		$(SRCS_NAME_PF:.c=.o)
 OBJ_PATH		=		obj/
 OBJ			=		$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+OBJ_PF		=		$(addprefix $(OBJ_PATH), $(OBJ_NAME_PF))
 INC			=		./includes/
 NAME			=		libft.a
 FLAG			=		-Wall -Werror -Wextra
 
-$(NAME): $(OBJ)
-	make -C printf/
-	cp printf/printf.a ./$(NAME)
-	ar rc $(NAME) $(OBJ)
+
+$(NAME): $(OBJ) $(OBJ_PF)
+	ar rc $(NAME) $(OBJ) $(OBJ_PF)
 	ranlib $(NAME)
 
-all: $(NAME)
-
-$(OBJ_PATH)%.o: %.c
+$(OBJ_PATH)%.o: $(SRCS_PATH)%.c
 	@mkdir -p obj
 	gcc -c $(FLAG) -I $(INC) $< -o $@
 
+all: $(NAME)
+
+
 clean:
-	make -C printf/ fclean
-	/bin/rm -f $(OBJ)
+	/bin/rm -f $(OBJ) $(OBJ_PF)
 
 fclean: clean
 	/bin/rm -f $(NAME)

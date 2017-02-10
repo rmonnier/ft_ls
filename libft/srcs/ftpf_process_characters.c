@@ -57,7 +57,6 @@ static void	apply_precision(char **data, int *size, t_specifiers specifiers)
 static void	apply_width(char **data, int *size, t_specifiers specifiers)
 {
 	int		width;
-	char	*to_add;
 	char	*tmp;
 
 	width = specifiers.width;

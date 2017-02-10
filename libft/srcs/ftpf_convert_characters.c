@@ -84,7 +84,7 @@ char		*ftpf_convert_characters(va_list ap, t_specifiers specifiers,
 		s = get_arg_ls(ap, size);
 	else if (specifiers.identifier == 'c')
 		s = get_arg_c(ap, size);
-	else if (specifiers.identifier == 's')
+	else
 		s = get_arg_s(ap, size);
 	return (s);
 }
