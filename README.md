@@ -18,8 +18,8 @@ Instead of calling ls, use ./ft_ls from the root directory.
 
 Supported flags
 
-### Long listing display: -l
-### Display recursively: -R
-### Display all files: -a
-### Reverse sort: -r
-### Sort by modification date: -t
+* Long listing display: -l
+* Display recursively: -R
+* Display all files: -a
+* Reverse sort: -r
+* Sort by modification date: -t
